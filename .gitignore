@@ -4,6 +4,12 @@ __dummy.html
 *.o
 *.obj
 *.exe
+*.lst
+*.lib
+*.dll
+*.sublime-workspace
+
 __test__*__
 
-*.sublime-workspace
+
+/bin
