@@ -2,8 +2,14 @@ name "blogd-rest"
 description "REST api for blogd-spaces"
 author "Joshua Hodkinson"
 license "MIT"
-copyright "Copyright © 2017, Joshua Hodkinson",
+copyright "Copyright © 2017, Joshua Hodkinson"
 
-dependency "vibe-d": "~>0.7.30"
+dependency "vibe-d" version="~>0.7.30"
 
 x:ddoxFilterArgs "--ex" "vibe." "--ex" "diet."
+
+configuration "unittest" {
+	dependency "unit-threaded" version="~>0.7.11"
+	mainSourceFile "bin/ut.d"
+	preBuildCommands "dub run unit-threaded -c gen_ut_main -- -f bin/ut.d"
+}
