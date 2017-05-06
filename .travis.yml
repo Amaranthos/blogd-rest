@@ -5,7 +5,7 @@ before_script:
   - dub fetch ddox
 
 script:
-  - dub test --coverage --combined
+  - dub test -config=unittest --coverage
 
 after_success:
   - dub run doveralls
