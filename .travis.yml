@@ -1,0 +1,11 @@
+language: d
+
+before_script:
+  - dub fetch doveralls
+  - dub fetch ddox
+
+script:
+  - dub test --coverage --combined
+
+after_success:
+  - dub run doveralls
