@@ -5,7 +5,10 @@ before_script:
   - dub fetch ddox
 
 script:
-  - dub test --config=unittest --coverage
+  # Coverage disabled due to
+  # https://github.com/rejectedsoftware/vibe.d/issues/767
+  # - dub test --config=unittest --coverage
+  - dub test --config=unittest
 
 after_success:
   - dub run doveralls
