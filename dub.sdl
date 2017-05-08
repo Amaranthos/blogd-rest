@@ -8,6 +8,11 @@ dependency "vibe-d" version="~>0.7.30"
 
 x:ddoxFilterArgs "--ex" "vibe." "--ex" "diet."
 
+configuration "executable" {
+	targetType "executable"
+	mainSourceFile "source/app.d"
+}
+
 configuration "unittest" {
 	dependency "unit-threaded" version="~>0.7.11"
 	mainSourceFile "bin/ut.d"

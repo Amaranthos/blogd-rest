@@ -1,17 +1,24 @@
 import vibe.vibe;
-version(unittest) {}
+
+import blogd.rest.restapi;
+
+version(unittest) { import unit_threaded; }
 else {
 	void main() {
+		auto router = new URLRouter;
+		router.registerRestInterface(new RestApi);
+
 		auto settings = new HTTPServerSettings;
 		settings.port = 8080;
-		settings.bindAddresses = ["::1", "127.0.0.1"];
-		listenHTTP(settings, &hello);
+		settings.bindAddresses = ["::1", "0.0.0.0"];
+		listenHTTP(settings, router);
 
-		logInfo("Please open http://127.0.0.1:8080/ in your browser.");
+		logInfo("REST server application running...");
 		runApplication();
 	}
 }
 
-void hello(HTTPServerRequest req, HTTPServerResponse res) {
-	res.writeBody("Hello, World!");
+@("failing")
+unittest {
+	assert(1==2);
 }
