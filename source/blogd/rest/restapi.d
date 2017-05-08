@@ -1,6 +1,5 @@
 module blogd.rest.restapi;
 
-import secret;
 import blogd.rest.irestapi;
 import blogd.data.models.post;
 
