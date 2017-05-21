@@ -1,8 +1,8 @@
 module blogd.data.models.post;
 
 /**
- * Post
- */
+* Post
+*/
 struct Post {
 	long id;
 	string title;

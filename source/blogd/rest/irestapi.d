@@ -7,5 +7,4 @@ import blogd.data.models.post;
 interface IRestApi {
 	Post[] queryPosts();
 	Post queryPosts(long id);
-	void postAuth();
 }

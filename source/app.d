@@ -2,7 +2,7 @@ import vibe.vibe;
 
 import blogd.rest.restapi;
 
-version(unittest) { import unit_threaded; }
+version(unittest) {}
 else {
 	void main() {
 		auto router = new URLRouter;
@@ -11,11 +11,15 @@ else {
 		auto settings = new HTTPServerSettings;
 		settings.port = 8080;
 		settings.bindAddresses = ["::1", "0.0.0.0"];
-		listenHTTP(settings, router);
+		listenHTTP(settings, &hello);
 
 		logInfo("REST server application running...");
 		runApplication();
 	}
+}
+
+void hello(HTTPServerRequest req, HTTPServerResponse res) {
+	res.writeBody("Hello, World!");
 }
 
 @("failing")

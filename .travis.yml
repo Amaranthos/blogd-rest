@@ -8,7 +8,7 @@ script:
   # Coverage disabled due to
   # https://github.com/rejectedsoftware/vibe.d/issues/767
   # - dub test --coverage
-  - dub test
+  - dub test -- -s
 
 after_success:
   - dub run doveralls
