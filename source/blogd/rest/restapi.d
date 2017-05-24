@@ -31,11 +31,10 @@ unittest {
 	import vibe.vibe;
 
 	auto router = new URLRouter;
-	//router.registerRestInterface(new RestApi);
+	router.registerRestInterface(new RestApi);
 
 	auto res = createTestHTTPServerResponse();
 	auto req = createTestHTTPServerRequest(URL("http://localhost/posts"));
-	//router.handleRequest(req, res);
-	//assert(res.statusCode == 200);
-	//std.stdio.writeln("Hello");
+	router.handleRequest(req, res);
+	assert(res.statusCode == 200);
 }

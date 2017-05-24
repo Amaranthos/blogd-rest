@@ -11,18 +11,17 @@ else {
 		auto settings = new HTTPServerSettings;
 		settings.port = 8080;
 		settings.bindAddresses = ["::1", "0.0.0.0"];
-		listenHTTP(settings, &hello);
+		listenHTTP(settings, router);
 
 		logInfo("REST server application running...");
 		runApplication();
 	}
 }
 
-void hello(HTTPServerRequest req, HTTPServerResponse res) {
-	res.writeBody("Hello, World!");
-}
+version(unittest) { import unit_threaded; }
+else { enum ShouldFail; }
 
-@("failing")
+@("failing", ShouldFail)
 unittest {
 	assert(1==2);
 }

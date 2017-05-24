@@ -17,4 +17,5 @@ configuration "unittest" {
 	dependency "unit-threaded" version="~>0.7.24"
 	mainSourceFile "bin/ut.d"
 	preBuildCommands "dub run unit-threaded -c gen_ut_main -- -f bin/ut.d"
+	versions "unitUnthreaded"
 }
